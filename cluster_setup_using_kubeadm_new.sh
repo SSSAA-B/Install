@@ -140,7 +140,7 @@ setup_master() {
     unset KUBECONFIG
 
     step "Step 7 : Install Calico network plugin ($CALICO_VERSION)"
-    kubectl apply -f "https://raw.githubusercontent.com/projectcalico/calico/$CALICO_VERSION/manifests/calico.yaml"
+    kubectl apply -f "https://raw.githubusercontent.com/projectcalico/calico/refs/heads/master/manifests/calico.yaml"
 
     step "Step 8 : Wait for node to be Ready"
     kubectl wait --for=condition=Ready node --all --timeout=300s || true
