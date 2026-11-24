@@ -137,6 +137,7 @@ setup_master() {
     mkdir -p "$HOME/.kube"
     sudo cp -f /etc/kubernetes/admin.conf "$HOME/.kube/config"
     sudo chown "$(id -u):$(id -g)" "$HOME/.kube/config"
+    unset KUBECONFIG
 
     step "Step 7 : Install Calico network plugin ($CALICO_VERSION)"
     kubectl apply -f "https://raw.githubusercontent.com/projectcalico/calico/$CALICO_VERSION/manifests/calico.yaml"
